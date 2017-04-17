@@ -1,0 +1,7 @@
+<h1>Rantman says Hi</h1>
+<p>People currently Ranting about: </p>
+<% puts "Yooooooo"%>
+<%= form_for :topic, url: {action: "create"} do |t| %>
+  New Rant topic : <%= t.text_field :name %>
+  <%= t.submit "Rant!"%>
+<% end %>
