@@ -1,7 +1,8 @@
 class TopicsController < ApplicationController
   
   def index
-
+    puts "Inside indexController"
+    @topic = Topic.all
   end
   
   def new
