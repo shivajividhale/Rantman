@@ -1,7 +1,12 @@
 <h1>Rants-index</h1>
 
 <table>
-  <%=@rants.each do |rant| %>
-    <tr>rant</tr>
+  <%@rants.each do |rant| %>
+    <tr><td><%=rant.value%></td></tr>
   <% end %>
 </table>
+
+<%= form_for :rant, url: {action: "create"} do |r| %>
+  New Rant : <%= r.text_field :value%>
+  <%= r.submit "Rant!"%>
+<% end %>

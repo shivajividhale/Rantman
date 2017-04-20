@@ -2,9 +2,17 @@
 <p>People currently Ranting about: </p>
 <table>
   <%@topic.each do |topic| %>
-    <tr><%=topic['name']%><br></tr>
+    <tr>
+      <td>
+        <%=link_to "#{topic['name']}", :controller => "rants", :action => "index", :topic => topic%>
+      </td>
+      <td>
+      	<%=link_to "Delete"%>
+      </td>
+    </tr>
   <% end %>
 </table>
+<br>
 <%= form_for :topic, url: {action: "create"} do |t| %>
   New Rant topic : <%= t.text_field :name %>
   <%= t.submit "Rant!"%>
