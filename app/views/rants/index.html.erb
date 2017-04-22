@@ -1,5 +1,5 @@
 <h1>Rants-index</h1>
-
+<%=link_to "Home", topics_path%>
 <table>
   <%@rants.each do |rant| %>
     <tr><td><%=rant.value%></td><td><%=link_to "Delete", rant, method: :delete, :rant => rant.id%></td></tr>
