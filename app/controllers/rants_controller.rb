@@ -27,5 +27,18 @@ class RantsController < ApplicationController
     end
   end
 
+  def destroy
+    r = Rant.delete(params[:id])
+    if r==1
+      puts "Rant deleted"
+      redirect_to :controller => "rants", :action => "index", :topic => @@topic
+      
+    else
+      # This line overrides the default rendering behavior, which
+      # would have been to render the "create" view.
+      render "rants#index"
+    end
+  end
+
  
 end

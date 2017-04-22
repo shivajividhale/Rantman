@@ -2,7 +2,7 @@
 
 <table>
   <%@rants.each do |rant| %>
-    <tr><td><%=rant.value%></td></tr>
+    <tr><td><%=rant.value%></td><td><%=link_to "Delete", rant, method: :delete, :rant => rant.id%></td></tr>
   <% end %>
 </table>
 
