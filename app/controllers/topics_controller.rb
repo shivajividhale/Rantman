@@ -27,8 +27,14 @@ class TopicsController < ApplicationController
   def show
   	puts "#{@topic.name}"
   	render "rants/index"
-  	
   end
+
+  def destroy
+    puts "delete clicked"
+    redirect_to "topics#index"
+    
+  end
+
   private
   def topic_params
     params.require(:topic).permit(:name)
