@@ -5,6 +5,7 @@ class RantsController < ApplicationController
   	@@topic = Topic.find(params[:topic])
   	puts "Topic id: #{@@topic.id}"
   	@rants = Rant.where(topic_id: @@topic.id)
+    @topic_name = @@topic.name 
   	@rant = Rant.new
   end
 

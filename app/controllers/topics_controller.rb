@@ -6,21 +6,15 @@ class TopicsController < ApplicationController
   end
   
   def new
-  	puts "New"
   end
   
   def create
-  	puts "New Topic"
-  	puts topic_params
   	@topic = Topic.create(topic_params)
-
     if @topic.save
       puts "Topic saved"
       redirect_to :controller => "rants", :action => "index", :topic => @topic
     else
-      # This line overrides the default rendering behavior, which
-      # would have been to render the "create" view.
-      render "topics#index"
+     render "topics#index"
     end
   end
 
@@ -31,10 +25,11 @@ class TopicsController < ApplicationController
 
   def destroy
     puts "delete clicked"
-    # r = Topic.delete(params[:id])
-    @topic = Topic.find(params[:id])
-    r_val = @topic.destroy
-    puts r_val
+    if Topic.destroy(params[:id])
+      puts "Topic destroyed"
+    else
+      puts "Topic not destroyed"
+    end
     redirect_to :controller => "topics", :action => "index"
   end
 
