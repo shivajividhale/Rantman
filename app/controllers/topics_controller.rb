@@ -31,8 +31,11 @@ class TopicsController < ApplicationController
 
   def destroy
     puts "delete clicked"
-    redirect_to "topics#index"
-    
+    # r = Topic.delete(params[:id])
+    @topic = Topic.find(params[:id])
+    r_val = @topic.destroy
+    puts r_val
+    redirect_to :controller => "topics", :action => "index"
   end
 
   private

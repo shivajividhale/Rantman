@@ -1,3 +1,4 @@
 class Topic < ApplicationRecord
-	has_many :rants
+	# before_destroy :destroy_rants
+	has_many :rants, dependent: :destroy
 end

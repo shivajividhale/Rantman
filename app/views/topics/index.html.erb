@@ -7,7 +7,7 @@
         <%=link_to "#{topic['name']}", :controller => "rants", :action => "index", :topic => topic%>
       </td>
       <td>
-      	<%=link_to "Delete", topic, method: :delete%>
+      	<%=link_to "Delete", topic, method: :delete, topic: topic.id %>
       </td>
     </tr>
   <% end %>
